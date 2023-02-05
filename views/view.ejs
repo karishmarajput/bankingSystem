@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+</head>
+<body>
+    <h1>view </h1>
+    <% if(details!=null) { %>
+        <table border="1px">
+        <tr>
+            <th>Account No</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Tranfer Money</th>
+        </tr>
+        <% details.forEach(function(item){ %>
+        <tr>
+            <td><%= item.accountNo%></td>
+            <td><%= item.name %></td>
+            <td><%= item.balance%></td>
+            <td>
+                <a href="/transfer?account=<%= item.accountNo%>&name=<%= item.name %>&email=<%= item.email %>">Details</a>
+            </td>
+        
+        </tr>
+        <% }) %>
+        </table>
+        <% } %>
+        
+</body>
+</html>

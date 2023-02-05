@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+</head>
+<body>
+    <h1>Transaction</h1>
+    <% if(details!=null) { %>
+        <table border="1px">
+        <tr>
+            <th colspan="2">From</th>
+            <th colspan="2">To</th>
+            <th rowspan="2">Amount</th>
+        </tr>
+        <tr>
+            <th>Account No</th>
+            <th>Name</th>
+            <th>Account No</th>
+            <th>Name</th>
+
+        </tr>
+        <% details.forEach(function(item){ %>
+        <tr>
+            <td><%= item.customer1%></td>
+            <td>
+                <% users.forEach(function(user){ %>
+                    <%if (user.accountNo == item.customer1) { %>
+                        <%= user.name %>
+                    <% } %>
+                   
+                <% }) %>
+            </td>
+            <td><%= item.customer2 %></td>
+            <td>
+                <% users.forEach(function(user){ %>
+                    <%if (user.accountNo == item.customer2) { %>
+                        <%= user.name %>
+                    <% } %>
+                   
+                <% }) %>
+            </td>
+            <td><%= item.amount%></td>
+        </tr>
+        <% }) %>
+        </table>
+        <% } %>
+</body>
+</html>

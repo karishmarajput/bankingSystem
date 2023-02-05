@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+   
+    Account no: <%= accountNo %><br>
+    Name: <%= name %><br>
+    Email: <%= email %><br>
+    <button onclick="transferMoney()">
+        Transfer Money
+    </button>
+    <div id="transferDiv">
+        <form action="/transfer" method="post">
+            <input type="number" name="customer1" value="<%= accountNo %>" readonly style="visibility: hidden;"><br>
+            
+            <label for="cars">Choose Recipient:</label>
+            <select name="customer2">
+            <% users.forEach(function(item){ %>
+                <option value=<%= item.accountNo%>>
+                <%= item.accountNo%>: <%= item.name %>
+                </option>
+                <% }) %>
+            </select><br>
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount">
+            <input type="submit">
+        </form>
+    </div>
+
+  
+    <script>
+        let tranferDiv = document.getElementById('transferDiv')
+        tranferDiv.style.display = "none"
+        function transferMoney(){
+           tranferDiv.style.display = "block" 
+        }
+    </script>
+</body>
+</html>
