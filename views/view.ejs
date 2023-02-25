@@ -1,33 +1,68 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/view.css" />
     <title>View</title>
-</head>
-<body>
-    <h1>view </h1>
+  </head>
+  <body>
+    <header class="container header">
+      <!-- ==== NAVBAR ==== -->
+      <nav class="nav">
+        <div class="logo">
+          <h2>SparkSafe.</h2>
+        </div>
+        <ul class="nav_menu_list">
+          <li class="nav_menu_item">
+            <a class="nav_menu_link" href="/">Home</a>
+          </li>
+          <li class="nav_menu_item">
+            <a class="nav_menu_link" href="/transaction">Transactions</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="view-header">
+      <h1>View</h1>
+      <p>Know about the customers of our bank.</p>
+    </div>
     <% if(details!=null) { %>
-        <table border="1px">
-        <tr>
-            <th>Account No</th>
-            <th>Name</th>
-            <th>Balance</th>
-            <th>Tranfer Money</th>
-        </tr>
-        <% details.forEach(function(item){ %>
-        <tr>
+    <div class="container-table">
+      <div class="table-div">
+        <table class="table table-striped">
+          <tr>
+            <th scope="row">Account No</th>
+            <th scope="row">Name</th>
+            <th scope="row">Balance</th>
+            <th scope="row">Transfer Money</th>
+          </tr>
+          <% details.forEach(function(item){ %>
+          <tr>
             <td><%= item.accountNo%></td>
             <td><%= item.name %></td>
-            <td><%= item.balance%></td>
+            <td>₹<%= item.balance%></td>
             <td>
-                <a href="/transfer?account=<%= item.accountNo%>&name=<%= item.name %>&email=<%= item.email %>">Details</a>
+              <button type="button" class="btn btn-primary">
+                <a
+                  href="/transfer?account=<%= item.accountNo%>&name=<%= item.name %>&email=<%= item.email %>"
+                  >Details</a
+                >
+              </button>
             </td>
-        
-        </tr>
-        <% }) %>
+          </tr>
+          <% }) %>
         </table>
         <% } %>
-        
-</body>
+      </div>
+    </div>
+  </body>
 </html>

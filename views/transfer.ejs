@@ -1,44 +1,75 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <br>
-   
-    Account no: <%= accountNo %><br>
-    Name: <%= name %><br>
-    Email: <%= email %><br>
-    <button onclick="transferMoney()">
-        Transfer Money
-    </button>
-    <div id="transferDiv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/transfer.css" />
+    <title>Transfer</title>
+  </head>
+  <body>
+    <div class="detail-div">
+      <div class="details">
+        <b>Account no:</b> <%= accountNo %><br />
+        <b>Name:</b> <%= name %><br />
+        <b>Email:</b> <%= email %><br />
+        <div class="detail-btn">
+          <button class="btn btn-primary" onclick="transferMoney()">
+            Transfer Money
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="transferDiv" class="transfer-div">
+      <div class="transfer">
         <form action="/transfer" method="post">
-            <input type="number" name="customer1" value="<%= accountNo %>" readonly style="visibility: hidden;"><br>
-            
-            <label for="cars">Choose Recipient:</label>
-            <select name="customer2">
-            <% users.forEach(function(item){ %>
-                <option value=<%= item.accountNo%>>
+          <input
+            type="number"
+            name="customer1"
+            value="<%= accountNo %>"
+            readonly
+            style="visibility: hidden"
+          /><br />
+          <div class="form-group">
+            <label><b>Choose Recipient</b></label>
+            <select name="customer2" class="form-control">
+              <% users.forEach(function(item){ %>
+              <option value="<%= item.accountNo%>">
                 <%= item.accountNo%>: <%= item.name %>
-                </option>
-                <% }) %>
-            </select><br>
-            <label for="amount">Amount:</label>
-            <input type="number" name="amount">
-            <input type="submit">
+              </option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="number"
+              placeholder="Amount"
+              name="amount"
+            />
+          </div>
+          <br />
+          <!-- <input type="submit" /> -->
+          <div class="submit-btn">
+            <button type="submit" class="btn btn-primary mb-2">Transfer</button>
+          </div>
         </form>
+      </div>
     </div>
 
-  
     <script>
-        let tranferDiv = document.getElementById('transferDiv')
-        tranferDiv.style.display = "none"
-        function transferMoney(){
-           tranferDiv.style.display = "block" 
-        }
+      let transferDiv = document.getElementById("transferDiv");
+      transferDiv.style.display = "none";
+      function transferMoney() {
+        transferDiv.style.display = "flex";
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,50 +1,73 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/transaction.css" />
     <title>Transaction</title>
-</head>
-<body>
-    <h1>Transaction</h1>
+  </head>
+  <body>
+    <header class="container header">
+      <!-- ==== NAVBAR ==== -->
+      <nav class="nav">
+        <div class="logo">
+          <h2>SparkSafe.</h2>
+        </div>
+        <ul class="nav_menu_list">
+          <li class="nav_menu_item">
+            <a class="nav_menu_link" href="/">Home</a>
+          </li>
+          <li class="nav_menu_item">
+            <a class="nav_menu_link" href="/view">Customers</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="view-header">
+      <h1>Transactions</h1>
+      <p>Know the logs of all the transactions.</p>
+    </div>
     <% if(details!=null) { %>
-        <table border="1px">
-        <tr>
-            <th colspan="2">From</th>
-            <th colspan="2">To</th>
-            <th rowspan="2">Amount</th>
-        </tr>
-        <tr>
-            <th>Account No</th>
-            <th>Name</th>
-            <th>Account No</th>
-            <th>Name</th>
-
-        </tr>
-        <% details.forEach(function(item){ %>
-        <tr>
+    <div class="container-table">
+      <div class="table-div">
+        <table class="table table-bordered">
+          <tr>
+            <th scope="row" colspan="2">From</th>
+            <th scope="row" colspan="2">To</th>
+            <th scope="row" rowspan="2">Amount</th>
+          </tr>
+          <tr>
+            <th scope="row">Account No</th>
+            <th scope="row">Name</th>
+            <th scope="row">Account No</th>
+            <th scope="row">Name</th>
+          </tr>
+          <% details.forEach(function(item){ %>
+          <tr>
             <td><%= item.customer1%></td>
             <td>
-                <% users.forEach(function(user){ %>
-                    <%if (user.accountNo == item.customer1) { %>
-                        <%= user.name %>
-                    <% } %>
-                   
-                <% }) %>
+              <% users.forEach(function(user){ %> <%if (user.accountNo ==
+              item.customer1) { %> <%= user.name %> <% } %> <% }) %>
             </td>
             <td><%= item.customer2 %></td>
             <td>
-                <% users.forEach(function(user){ %>
-                    <%if (user.accountNo == item.customer2) { %>
-                        <%= user.name %>
-                    <% } %>
-                   
-                <% }) %>
+              <% users.forEach(function(user){ %> <%if (user.accountNo ==
+              item.customer2) { %> <%= user.name %> <% } %> <% }) %>
             </td>
             <td><%= item.amount%></td>
-        </tr>
-        <% }) %>
+          </tr>
+          <% }) %>
         </table>
         <% } %>
-</body>
+      </div>
+    </div>
+  </body>
 </html>

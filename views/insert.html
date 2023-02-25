@@ -1,21 +1,77 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/style/insert.css" />
     <title>Document</title>
-</head>
-<body>
-    <form action="/insert" method="post">
-        <label for="name">Name</label>
-        <input name="name" type="text">
-        <label for="accountNo">Account No</label>
-        <input name="accountNo" type="number">
-        <label for="balance">Current balance</label>
-        <input name="balance" type="number">
-        <label for="email">Email</label>
-        <input name="email" type="email">
-        <input type="submit">
-    </form>
-</body>
+  </head>
+  <body>
+    <!-- <label for="name">Name</label>
+    <input name="name" type="text" />
+    <label for="accountNo">Account No</label>
+    <input name="accountNo" type="number" />
+    <label for="balance">Current balance</label>
+    <input name="balance" type="number" />
+    <label for="email">Email</label>
+    <input name="email" type="email" />
+    <input type="submit" /> -->
+    <div class="registration-form">
+      <form action="/insert" method="post">
+        <div class="form-icon">
+          <i class="icon icon-user"></i>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control item"
+            name="name"
+            placeholder="Username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control item"
+            name="accountNo"
+            placeholder="Account Number"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control item"
+            name="balance"
+            placeholder="Balance"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control item"
+            name="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-block create-account">
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
