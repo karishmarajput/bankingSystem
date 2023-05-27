@@ -136,10 +136,10 @@ app.get("/insert", (req, res) => {
 });
 app.post("/insert", (req, res) => {
   var obj = {
-    name: "nameee",
-    accountNo: 102929,
-    balance: 6823168,
-    email: "karrajput3948@hsjh.hsd",
+    name: req.body.name,
+    accountNo: req.body.accountNo,
+    balance: req.body.balance,
+    email: req.body.email,
   };
 
   console.log(obj);
